@@ -1,6 +1,4 @@
 const sContainer = document.querySelector(".container")
-const container = document.createElement("div");
-container.setAttribute("class", "container")
 
 const box = document.createElement("div");
 box.setAttribute("class", "cldContainer");
@@ -17,3 +15,18 @@ for (let i = 0; i <= 15; i++) {
 }
 
 appendNCopies(15, sContainer, document.body)
+
+const canvas = document.querySelectorAll(".cldContainer")
+
+canvas.forEach((canva) => {
+    canva.addEventListener("mouseout", function() {
+        canva.style.backgroundColor = "black";
+        console.log("Hovered!")
+    })
+})
+
+const reqButton = document.querySelector("button");
+
+reqButton.addEventListener("click", function() {
+    
+})
