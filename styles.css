@@ -5,16 +5,23 @@ body {
     align-items: center;
 }
 
-
-.container {
+.container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 25vw;
 }
 
-.container > div {
+
+.sContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sContainer > .items {
     border: 1px black solid;
     height: 3vh;
     width: 1.5vw;
