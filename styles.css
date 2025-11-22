@@ -10,7 +10,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 25vw;
 }
 
 
@@ -19,12 +18,13 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .sContainer > .items {
     border: 1px black solid;
-    height: 3vh;
     width: 1.5vw;
+    height: 3vh;
 }
 
 button {

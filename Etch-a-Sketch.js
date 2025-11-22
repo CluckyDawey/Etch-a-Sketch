@@ -1,26 +1,36 @@
 const Container = document.querySelector(".container")
 
-const colBoxes = document.createElement("div")
-colBoxes.setAttribute("class", "sContainer")
+//create item boxes
+function createItems() {
+    const box = document.createElement("div");
+    box.classList.add("items")
+    box.addEventListener("mouseenter", ()=>{
+        box.style.backgroundColor = "black";
+    })
+    return box
+}
 
-//create divs to be inserted into container
-const box = document.createElement("div");
-box.setAttribute("class", "items");
+//create rows of divs to be inserted into container
+function createRows(n=16) {
+    const rowBoxes = document.createElement("div")
+    for (let i = 0; i < n; i++) {
+        let item = createItems();
+        rowBoxes.append(item);
+    }
+    rowBoxes.classList.add("sContainer")
+
+    return rowBoxes
+}
+
 
 //function to append columns of boxes
 function generateCanvas(n=16) {
     for(let i = 0; i < n; i++) {
-        let clone = colBoxes.cloneNode(true);
+        let clone = createRows(n);
         Container.appendChild(clone);
     }
 }
 
-//function to append rows of boxes
-function appendRows(n=16) {
-    for (let i = 0; i < n; i++) {
-        colBoxes.append(box.cloneNode(true));
-    }
-}
 
 //Function to create the whole canvas
 
@@ -38,16 +48,8 @@ reqButton.addEventListener("click", function() {
     } else if (canvasSize > 100) {
         alert("The maximum number that can be accepted is 100")
     } else {
-        wholeCanvas(canvasSize)
+        Container.replaceChildren()
+        generateCanvas(canvasSize)
     }
 })
 
-//main function for Etch a Sketch
-const canvas = document.querySelectorAll(".items")
-
-canvas.forEach((canva) => {
-    canva.addEventListener("mouseout", function() {
-        canva.style.backgroundColor = "black";
-        console.log("Hovered!")
-    })
-})
